@@ -1,0 +1,61 @@
+spring:
+  profiles:
+    active: local
+  application:
+    name: road-eureka-server
+
+server:
+  port: 8761
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    serviceUrl:
+      default-zone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+logging:
+  level:
+    org.springframework:
+      cloud: DEBUG
+
+management:
+  endpoints:
+    jmx:
+      exposure:
+        include: "*"
+        exclude: ""
+    web:
+      exposure:
+        include: "*"
+        exclude: ""
+  endpoint:
+    health:
+      show-details: always
+
+---
+spring:
+  profiles:
+    on-profile: prod
+  application:
+    name: road-eureka-server
+
+server:
+  port: 8761
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    serviceUrl:
+      default-zone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+
+logging:
+  level:
+    org.springframework:
+      cloud: INFO
