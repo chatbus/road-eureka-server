@@ -12,6 +12,8 @@ LABEL maintainer="Jiam Seo <jams7777@gmail.com>"
 
 COPY --from=build /opt/src/target/road-eureka-server.jar /opt/app.jar
 
+ENV SPRING_PROFILES_ACTIVE local
+
 EXPOSE 8761
 
 ENTRYPOINT ["java","-jar","/opt/app.jar"]
