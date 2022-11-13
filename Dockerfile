@@ -11,4 +11,7 @@ LABEL Name="road-eureka-server Version=1.0.0-SNAPSHOT"
 LABEL maintainer="Jiam Seo <jams7777@gmail.com>"
 
 COPY --from=build /opt/src/target/road-eureka-server.jar /opt/app.jar
+
+EXPOSE 8761
+
 ENTRYPOINT ["java","-jar","/opt/app.jar"]
